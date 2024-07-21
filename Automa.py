@@ -8,6 +8,7 @@ from io import BytesIO
 
 # Paso 1: Importar las librerías necesarias
 st.title("Carga y proceso de archivos")
+st.markdown("Esta app se encarga de poder analizar un archivo subido, para después crear nuevos archivos que salgan del mismo. Esto es sumamente util para agilizar procesos y poder analizar información más a detalle sin necesidad de realizar el proceso en excel")
 
 # Paso 2: Subir el archivo semanal "centralizado BAT" desde la interfaz de Streamlit
 archivo_subido = st.file_uploader("Sube el archivo", type=["xlsx"])
