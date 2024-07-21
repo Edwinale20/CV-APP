@@ -7,27 +7,27 @@ import plotly.graph_objects as go
 from io import BytesIO
 
 # Paso 1: Importar las librerías necesarias
-st.title("Carga y proceso de centralizado BAT")
+st.title("Carga y proceso de archivos")
 
 # Paso 2: Subir el archivo semanal "centralizado BAT" desde la interfaz de Streamlit
 archivo_subido = st.file_uploader("Sube el archivo", type=["xlsx"])
 
 if archivo_subido is None:
-    st.info("Sube el archivo de centralizado")
+    st.info("Sube el archivo")
     st.stop()
 
 # Opción para elegir el tipo de pedido
-tipo_pedido = st.selectbox("Selecciona el tipo de pedido:", ["stock", "complementario"])
+tipo_pedido = st.selectbox("Selecciona el tipo de archivo:", ["Normal", "Por tienda"])
 
 if archivo_subido:
     try:
         # Verificar que el archivo contenga la hoja 'DETALLE PEDIDO'
         with pd.ExcelFile(archivo_subido) as xls:
             if 'DETALLE PEDIDO' in xls.sheet_names:
-                dataframe_bat = pd.read_excel(xls, sheet_name='DETALLE PEDIDO')
+                dataframe_bat = pd.read_excel(xls, sheet_name='Hoja')
                 st.write("Archivo leído correctamente.")
             else:
-                st.error("La hoja 'DETALLE PEDIDO' no existe en el archivo subido.")
+                st.error("La hoja 'Hoja' no existe en el archivo subido.")
                 st.stop()
 
         # Mantener solo las columnas de interés
