@@ -32,7 +32,7 @@ if archivo_subido:
                 st.stop()
 
         # Mantener solo las columnas de interés
-        columnas_interes = ['PLAZA BAT', 'N TIENDA', 'UPC', 'SKU 7 ELEVEN', 'ARTICULO 7 ELEVEN', 'CAJETILLAS X PQT', 'CAJETILLAS', 'PAQUETES', 'FECHA DE PEDIDO']
+        columnas_interes = ['ESTADO', 'N TIENDA', 'UPC', 'CODIGO DE BARRAS', 'ARTICULO', 'CAJETILLAS X PQT', 'CAJETILLAS', 'PAQUETES', 'FECHA DE PEDIDO']
         dataframe_bat = dataframe_bat[[col for col in columnas_interes if col in dataframe_bat.columns]]
 
         # Asegurarse de que la columna PAQUETES sea numérica
@@ -42,10 +42,10 @@ if archivo_subido:
         st.error(f"Error al leer el archivo: {e}")
 
     # Definir columnas sin PAQUETES
-    columnas_sin_paquetes = ['UPC', 'SKU 7 ELEVEN', 'ARTICULO 7 ELEVEN', 'CAJETILLAS X PQT', 'CAJETILLAS']
+    columnas_sin_paquetes = ['UPC', 'CODIGO DE BARRAS', 'ARTICULO', 'CAJETILLAS X PQT', 'CAJETILLAS']
 
     # Paso 3: Filtrar por PLAZA BAT o N TIENDA usando un botón y mostrar todas las columnas (sin la columna PAQUETES)
-    st.title("Filtrar por PLAZA BAT o N TIENDA")
+    st.title("Filtrar por ESTADO o TIENDA")
 
     # Determinar la columna para filtrar
     columna_filtrar = 'N TIENDA' if 'N TIENDA' in dataframe_bat.columns and tipo_pedido == "stock" else 'PLAZA BAT'
