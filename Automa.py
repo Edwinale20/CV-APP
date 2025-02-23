@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from io import BytesIO
 
 # Paso 1: Importar las librerías necesarias
-st.title("🧠 El bazar de la salud mental")
+st.title("🧠 El bazar de la salud mental 🧘‍♀️")
 st.markdown("Esta de poder brindar a las personas un bazar de herramienta de salud mental")
 
 # Paso 2: Subir el archivo semanal "centralizado BAT" desde la interfaz de Streamlit
